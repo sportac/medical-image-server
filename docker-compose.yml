@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  web-server:
+    build:
+      context: .
+      dockerfile: compose/web_server/Dockerfile
+    image: web_server
+    container_name: web_server
+    platform: linux/x86_64
+    volumes:
+      - .:/app:z
+    ports:
+      - "8000:8000"
+    command: /start
