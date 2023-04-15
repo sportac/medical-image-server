@@ -1,8 +1,9 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.sql.expression import select
 
-from app import models, schemas
-from app.hashing import Hash
+from app import schemas
+from app.db import models
+from app.security import Hash
 
 
 def get_user(db: Session, user_id: int):
