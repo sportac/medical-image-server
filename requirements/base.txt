@@ -28,8 +28,15 @@ uvicorn==0.21.1
 uvloop==0.17.0
 watchfiles==0.19.0
 websockets==11.0.1
-Jinja2==3.1.2
 
 # Database Management
 SQLAlchemy==2.0.9
 alembic==1.10.3
+
+# Hashing
+passlib==1.7.4
+bcrypt==4.0.1
+
+# Network
+python-multipart==0.0.6
+Jinja2==3.1.2

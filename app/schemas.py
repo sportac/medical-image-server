@@ -10,6 +10,13 @@ class UserCreate(UserBase):
     password: str
 
 
+class UserAuthenticate(UserBase):
+    hashed_password: str
+
+    class Config:
+        orm_mode = True
+
+
 class User(UserBase):
     id: int
 
