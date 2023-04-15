@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{url_for('static', path='/css/home.css')}}">
+</head>
+<body>
+    <header>
+        <h1>Medical Image Server</h1>
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </header>
+    <main>
+        <h2>Select an Option</h2>
+        <div class="button-container">
+            <button id="patient-btn" class="button">Get Patient Name</button>
+            <button id="image-btn" class="button">View DICOM Image</button>
+        </div>
+        <div id="result"></div>
+    </main>
+    <script src="{{url_for('static', path='/js/main.js')}}"></script>
+</body>
+</html>
