@@ -50,3 +50,57 @@ Pytest allows the developer to write test functions in Python and assert expecte
 By using pytest, the development team can ensure that the FastAPI application is functioning correctly and the code
 changes don't break the existing functionality. The tests can be run locally before committing code to the repository,
 or can be run automatically using a CI/CD pipeline.
+
+## Project Structure
+### Models
+The models.py file in this project serves the purpose of defining the data models that will be used to represent data 
+in our application's SQLite database. It defines the fields and data types for each table in the database, and specifies 
+the relationships between those tables.
+
+### Schemas
+The schemas.py file in this project serves the purpose of defining the Pydantic schemas that will be used to validate 
+and serialize data in our application's API. It defines the fields and data types for each request and response object,
+and specifies the relationships between those objects.
+
+### Crud
+The crud.py file in this project serves the purpose of defining the CRUD (Create, Read, Update, Delete) operations that 
+our application's API will perform on our User model. It provides a set of functions that interact with the database 
+through SQLAlchemy's Session object to perform these operations.
+
+### Database
+In this project, we are using SQLAlchemy as an Object-Relational Mapping (ORM) tool to connect our FastAPI application 
+to a SQLite database. SQLAlchemy is a popular Python library that provides a high-level interface for interacting with 
+relational databases, and allows developers to work with databases in a more Pythonic way, using Python objects and 
+syntax instead of writing raw SQL queries.
+
+### Alembic
+We use Alembic in this project as a database migration tool. Alembic helps us to keep our database schema in sync with 
+the changes we make to our models in a version-controlled and systematic way.
+
+When we make changes to our database schema, such as adding or modifying tables or columns, we create a new migration 
+script using Alembic. This migration script contains the necessary SQL commands to apply or revert the changes to the 
+database. We can then run the migration script to apply the changes to our database, or revert the changes if needed.
+
+To init alembic in the project:
+```bash
+alembic init alembic
+```
+This creates an alembic directory in the project with some configuration files and a versions directory where the 
+migration files are stored.
+
+Update the alembic.ini file with:
+```ini
+# alembic.ini
+sqlalchemy.url = DATABASE_URL
+```
+Generate migration file:
+```bash
+alembic revision --autogenerate -m "Initial migration"
+```
+Run the migrations to the database:
+```bash
+alembic upgrade head
+```
+
+
+

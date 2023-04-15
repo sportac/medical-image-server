@@ -31,3 +31,6 @@ htmlcov/
 # Dependency management
 venv/
 pip-lock.txt
+
+# Local database
+test.db
