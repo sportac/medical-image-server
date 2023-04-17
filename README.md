@@ -16,7 +16,7 @@ docker compose up --build
 ```
 
 ### Fast API
-FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7+ based on standard Python
+FastAPI is a web framework for building APIs with Python 3.7+ based on standard Python
 type hints. It is designed to be easy to use and to provide high performance, with features such as automatic validation
 of request and response data, automatic generation of OpenAPI (formerly known as Swagger) documentation, and easy
 integration with other tools such as databases, async libraries, and more. FastAPI is built on top of Starlette for the
@@ -31,7 +31,7 @@ To run the server:
 uvicorn main:app --reload
 ```
 ### Pre-commit
-In this project, pre-commit is being used as a code quality tool to help enforce coding standards and ensure code
+Pre-commit is being used as a code quality tool to help enforce coding standards and ensure code
 consistency across the project. It is configured to run automatically before every commit, preventing code that does
 not meet the defined standards from being committed.
 
@@ -47,29 +47,29 @@ pre-commit run --all-files
 Pytest is being used in this project as a testing framework to test the functionality of the FastAPI application.
 Pytest allows the developer to write test functions in Python and assert expected results.
 
-By using pytest, the development team can ensure that the FastAPI application is functioning correctly and the code
+By using pytest, we can ensure that the FastAPI application is functioning correctly and the code
 changes don't break the existing functionality. The tests can be run locally before committing code to the repository,
 or can be run automatically using a CI/CD pipeline.
 
 ## Project Structure
 ### Models
-The models.py file in this project serves the purpose of defining the data models that will be used to represent data
+The models.py file is used to define the data models that will be used to represent data
 in our application's SQLite database. It defines the fields and data types for each table in the database, and specifies
 the relationships between those tables.
 
 ### Schemas
-The schemas.py file in this project serves the purpose of defining the Pydantic schemas that will be used to validate
+The schemas.py defines the Pydantic schemas that will be used to validate
 and serialize data in our application's API. It defines the fields and data types for each request and response object,
 and specifies the relationships between those objects.
 
 ### Crud
-The crud.py file in this project serves the purpose of defining the CRUD (Create, Read, Update, Delete) operations that
+The crud.py file defines the CRUD (Create, Read, Update, Delete) operations that
 our application's API will perform on our User model. It provides a set of functions that interact with the database
 through SQLAlchemy's Session object to perform these operations.
 
 ### Database
 In this project, we are using SQLAlchemy as an Object-Relational Mapping (ORM) tool to connect our FastAPI application
-to a SQLite database. SQLAlchemy is a popular Python library that provides a high-level interface for interacting with
+to a SQLite database. SQLAlchemy is a Python library that provides a high-level interface for interacting with
 relational databases, and allows developers to work with databases in a more Pythonic way, using Python objects and
 syntax instead of writing raw SQL queries.
 
