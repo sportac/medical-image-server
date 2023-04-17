@@ -40,3 +40,7 @@ bcrypt==4.0.1
 # Network
 python-multipart==0.0.6
 Jinja2==3.1.2
+
+# Image processing
+pydicom==2.3.1
+matplotlib==3.7.1

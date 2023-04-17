@@ -1,4 +1,3 @@
-from .api import auth, user
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -7,6 +6,8 @@ from sqlalchemy.orm import sessionmaker
 
 from app.db import models
 from app.db.database import engine
+
+from .api import auth, dicom, user
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -22,9 +23,10 @@ templates = Jinja2Templates(directory="templates")
 # Register the API endpoints
 app.include_router(auth.router)
 app.include_router(user.router)
+app.include_router(dicom.router)
 
 
-# The base view is the login view
+# Login as root view
 @app.get("/", response_class=HTMLResponse)
 async def login_page(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
