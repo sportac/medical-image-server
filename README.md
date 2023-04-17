@@ -3,6 +3,8 @@
 The Medical Image Server is a web application that serves as a platform for retrieving and displaying medical images
 from DICOM files. The application consists of a front-end in Javascript and a back-end writen in Python and Fast Api.
 
+![SAMPLE_IMAGE!](images/image_1.png)
+
 ## Project Setup
 ### Docker
 This project uses Docker to containerize the application, which allows for easier deployment and reproducibility across
@@ -13,6 +15,18 @@ In our case we only have a single service acting as web server.
 To start the application we use the command:
 ```bash
 docker compose up --build
+```
+Once running locally, it is possible to access at [Login Page](http://localhost:8000/). To authenticate, first a user 
+must be created by making use of the create user view of the API.
+```bash
+POST /users HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "sergiporta",
+    "password": "mypassword",
+    "email": "sergiporta@gmail.com"
+}
 ```
 
 ### Fast API
