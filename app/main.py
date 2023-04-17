@@ -26,6 +26,15 @@ app.include_router(user.router)
 app.include_router(dicom.router)
 
 
+# Dependency for getting a database session
+def get_db():
+    try:
+        db = SessionLocal()
+        yield db
+    finally:
+        db.close()
+
+
 # Login as root view
 @app.get("/", response_class=HTMLResponse)
 async def login_page(request: Request):

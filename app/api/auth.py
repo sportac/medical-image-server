@@ -21,6 +21,9 @@ def get_db():
 # Route used to authenticate the user credentials and send them to the home view
 @router.post("/login/")
 async def do_login(request: Request, response: Response, db: Session = Depends(get_db)):
+    """
+    Authenticate user credentials and redirect to home view.
+    """
     form = await request.form()
     username = form.get("username")
     password = form.get("password")
@@ -36,5 +39,8 @@ async def do_login(request: Request, response: Response, db: Session = Depends(g
 # Route used to logout the user and send them back to the login
 @router.get("/logout")
 async def logout(response: Response):
+    """
+    Logout user and redirect to login view.
+    """
     response.delete_cookie("session")
     return RedirectResponse(url="/", status_code=status.HTTP_302_FOUND)

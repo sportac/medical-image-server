@@ -33,4 +33,5 @@ venv/
 pip-lock.txt
 
 # Local database
+local.db
 test.db
